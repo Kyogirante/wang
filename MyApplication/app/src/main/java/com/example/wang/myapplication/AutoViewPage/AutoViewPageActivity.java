@@ -1,4 +1,4 @@
-package com.example.wang.myapplication;
+package com.example.wang.myapplication.AutoViewPage;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.wang.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
