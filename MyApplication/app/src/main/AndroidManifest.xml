@@ -10,16 +10,22 @@
         <activity
             android:name=".home.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".AutoViewPage.AutoViewPageActivity"
             android:label="AutoViewPage"
-            android:theme="@style/AppTheme.NoTitle.FullScreen">
+            android:theme="@style/AppTheme.NoTitle.FullScreen" >
+        </activity>
+        <activity
+            android:name=".ListView.ConsumeListActivity"
+            android:label="@string/title_activity_consume_list"
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 
