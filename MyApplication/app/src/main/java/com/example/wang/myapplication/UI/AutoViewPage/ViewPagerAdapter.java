@@ -1,4 +1,4 @@
-package com.example.wang.myapplication.AutoViewPage;
+package com.example.wang.myapplication.UI.AutoViewPage;
 
 /**
  * Created by haha201 on 2015/4/24.

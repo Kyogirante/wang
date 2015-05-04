@@ -1,4 +1,4 @@
-package com.example.wang.myapplication.AutoViewPage;
+package com.example.wang.myapplication.UI.AutoViewPage;
 
 import android.app.Activity;
 import android.content.Context;
