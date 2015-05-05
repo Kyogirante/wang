@@ -29,7 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:textSize="@dimen/text_size_20"
+        android:layout_marginBottom="@dimen/margin_padding_10"
+        style="@style/Button.Red"
         android:text="@string/add"/>
 
 </RelativeLayout>
