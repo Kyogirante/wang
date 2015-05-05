@@ -1,11 +1,13 @@
 package com.example.wang.myapplication.Bean;
 
+import com.example.wang.myapplication.Utils.Bean;
+
 import java.util.Date;
 
 /**
  * Created by haha201 on 2015/5/4.
  */
-public class ConsumeBean {
+public class ConsumeBean extends Bean {
 
 
     private double cost;

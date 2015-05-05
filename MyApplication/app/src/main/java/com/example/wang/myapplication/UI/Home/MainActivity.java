@@ -7,6 +7,7 @@ import android.widget.Button;
 import com.example.wang.myapplication.UI.AutoViewPage.AutoViewPageActivity;
 import com.example.wang.myapplication.BaseActivity;
 import com.example.wang.myapplication.R;
+import com.example.wang.myapplication.UI.Consume.ConsumeListActivity;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
@@ -35,6 +36,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 AutoViewPageActivity.intentAction(this);
                 break;
             case R.id.listview_btn:
+                ConsumeListActivity.intentAction(this);
                 break;
             default:
                 break;

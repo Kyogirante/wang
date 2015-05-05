@@ -6,6 +6,9 @@
     <string name="viewpager_btn_text">滑动页面</string>
     <string name="listview_btn_text">列表页面</string>
     <string name="title_action_edit">编辑</string>
+    <string name="add">添加</string>
+    <string name="desc_msg">并不能有更多~</string>
+    <string name="rmb">¥</string>
     <string name="title_activity_main_activity2">MainActivity2</string>
     <string name="title_activity_consume_list">ConsumeListActivity</string>
 

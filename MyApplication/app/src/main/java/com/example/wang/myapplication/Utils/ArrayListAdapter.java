@@ -1,5 +1,6 @@
-package com.example.wang.myapplication.UI.Consume;
+package com.example.wang.myapplication.Utils;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -10,16 +11,18 @@ import java.util.List;
 /**
  * Created by wang on 2015/5/4.
  */
-public abstract class ListViewAdapter<T> extends BaseAdapter{
+public abstract class ArrayListAdapter<T> extends BaseAdapter{
 
     private List<T> mList;
+    private Context mContext;
 
-    public ListViewAdapter(){
+    public ArrayListAdapter(){
 
     }
 
-    public ListViewAdapter(List<T> mList){
+    public ArrayListAdapter(List<T> mList, Context context){
         this.mList = mList;
+        this.mContext = context;
     }
 
     @Override
@@ -40,13 +43,21 @@ public abstract class ListViewAdapter<T> extends BaseAdapter{
     @Override
     public abstract View getView(int i, View view, ViewGroup viewGroup);
 
-    public List<T> getmList() {
+    public List<T> getList() {
         return mList;
     }
 
-    public void setmList(List<T> mList) {
+    public void setList(List<T> mList) {
         this.mList = mList;
         notifyDataSetChanged();
+    }
+
+    public Context getContext() {
+        return mContext;
+    }
+
+    public void setContext(Context mContext) {
+        this.mContext = mContext;
     }
 
     public void setList(T[] list){
@@ -54,10 +65,6 @@ public abstract class ListViewAdapter<T> extends BaseAdapter{
         for(T t:list){
             arrayList.add(t);
         }
-        setmList(arrayList);
-    }
-    //use to cache list view
-    public final class ViewHold{
-
+        setList(arrayList);
     }
 }
