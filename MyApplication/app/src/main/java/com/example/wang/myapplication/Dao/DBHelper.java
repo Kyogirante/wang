@@ -39,11 +39,13 @@ public class DBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        //TODO 创建数据库
+        ConsumeDao.onCreateTable(sqLiteDatabase);
+        //TODO create db table
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        //TODO 升级数据库
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        ConsumeDao.onUpdateTable(sqLiteDatabase,oldVersion,newVersion);
+        //TODO update db table
     }
 }

@@ -1,14 +1,14 @@
 package com.example.wang.myapplication.UI.AutoViewPage;
 
 /**
- * Created by haha201 on 2015/4/24.
+ * Created by wang on 2015/4/24.
  */
-import java.util.List;
-
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import java.util.List;
 
 class ViewPagerAdapter extends PagerAdapter {
     private List<ImageView> mImageViewList;

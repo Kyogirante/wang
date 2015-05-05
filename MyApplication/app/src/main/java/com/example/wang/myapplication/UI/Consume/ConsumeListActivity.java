@@ -11,6 +11,9 @@ import com.example.wang.myapplication.BaseActivity;
 import com.example.wang.myapplication.R;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
+/**
+ * Created by wang on 2015/5/5.
+ */
 public class ConsumeListActivity extends BaseActivity {
 
     private PullToRefreshListView listView;

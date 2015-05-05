@@ -3,7 +3,7 @@ package com.example.wang.myapplication.Dao;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
- * Created by haha201 on 2015/5/4.
+ * Created by wang on 2015/5/4.
  */
 public class ConsumeDao extends BaseDao{
     public static final String TABLE_NAME = "t_consume";
@@ -14,8 +14,7 @@ public class ConsumeDao extends BaseDao{
     public static final String DESCRIBE_MSG = "describe_msg";
     public static final String TIME ="time";
 
-    @Override
-    public void onCreateTable(SQLiteDatabase db) {
+    public static void onCreateTable(SQLiteDatabase db) {
         String sql = "CREATE TABLE IF NOT EXISTS" + TABLE_NAME + "(" +
                     ID + "INTEGER PRIMARY KEY AUTOINCREMENT," +
                     COST + "DOUBLE NOT NULL," +
@@ -25,8 +24,7 @@ public class ConsumeDao extends BaseDao{
         db.execSQL(sql);
     }
 
-    @Override
-    public void onUpdateTable(SQLiteDatabase db) {
+    public static void onUpdateTable(SQLiteDatabase db, int oldVersion, int newVersion) {
         //TODO db update
     }
 }
