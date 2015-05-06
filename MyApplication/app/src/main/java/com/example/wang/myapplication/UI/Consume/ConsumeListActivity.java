@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 
 import com.example.wang.myapplication.BaseActivity;
+import com.example.wang.myapplication.Bean.ConsumeBean;
 import com.example.wang.myapplication.R;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by wang on 2015/5/5.
@@ -17,13 +20,14 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 public class ConsumeListActivity extends BaseActivity {
 
     private PullToRefreshListView listView;
+    private ConsumeListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consume_list);
         listView = (PullToRefreshListView)findViewById(R.id.consume_listView);
-        listView.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,getData()));
+        listView.setAdapter(getAdapter());
     }
 
     @Override
@@ -36,21 +40,31 @@ public class ConsumeListActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_edit) {
-            //TODO handle edit event
+            //handle edit event
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private String[] getData(){
-        //TODO get data from DB
-        String[] strs = new String[] {
-                "first", "second", "third", "fourth", "fifth"
-        };//定义一个String数组用来显示ListView的内容
-        return strs;
+    private ConsumeListAdapter getAdapter(){
+        adapter = new ConsumeListAdapter(getData(),this);
+        return adapter;
+    }
+
+    private List<ConsumeBean> getData(){
+        //get data from DB
+        List<ConsumeBean> data = new ArrayList<>();
+        ConsumeBean bean;
+        for(int i = 0; i < 10; i ++){
+            bean = new ConsumeBean();
+            bean.setCost(i*2.0f);
+            bean.setCategory(""+i);
+            data.add(bean);
+        }
+
+        return data;
     }
 
     public static void intentAction(Context context){

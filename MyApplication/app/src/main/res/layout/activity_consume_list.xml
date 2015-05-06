@@ -1,36 +1,42 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical">
         <com.handmark.pulltorefresh.library.PullToRefreshListView
             android:id="@+id/consume_listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="@color/transparent"
-            android:dividerHeight="@dimen/margin_padding_15"/>
-
-        <TextView
-            android:id="@+id/desc_msg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/text_color_medium"
-            android:textSize="@dimen/text_size_14"
-            android:text="@string/desc_msg"
-            android:visibility="gone"/>
+            android:dividerHeight="@dimen/margin_padding_15"
+            android:scrollbars="none"
+            ptr:ptrAnimationStyle="flip"
+            ptr:ptrNoValidMoreUserDefinedMode="footer"
+            ptr:ptrUD_footer_layout="@layout/consume_list_footer"
+            ptr:ptrDrawable="@drawable/icon_pull"
+            ptr:ptrFlipStyleImageTextLayout="close"
+            ptr:ptrProgressBarSrc="@drawable/progress_bar_loading"/>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/add_btn"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/margin_padding_10"
-        style="@style/Button.Red"
-        android:text="@string/add"/>
+        android:layout_height="@dimen/margin_padding_60"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/add_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginBottom="@dimen/margin_padding_10"
+            android:layout_marginTop="@dimen/margin_padding_10"
+            style="@style/Button.Red"
+            android:text="@string/add"/>
+    </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

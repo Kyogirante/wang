@@ -1,10 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.wang.myapplication.UI.Consume.ConsumeListActivity">
     <item
         android:id="@+id/action_edit"
         android:title="@string/title_action_edit"
         android:visible="true"
-        app:showAsAction="always" />
+        android:showAsAction="always" />
 </menu>

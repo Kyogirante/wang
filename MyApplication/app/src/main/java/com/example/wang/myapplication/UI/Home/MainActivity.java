@@ -1,4 +1,4 @@
-package com.example.wang.myapplication.UI.Consume.home;
+package com.example.wang.myapplication.UI.Home;
 
 import android.os.Bundle;
 import android.view.View;

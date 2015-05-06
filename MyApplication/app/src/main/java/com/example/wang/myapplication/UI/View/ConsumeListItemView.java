@@ -2,14 +2,13 @@ package com.example.wang.myapplication.UI.View;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.wang.myapplication.Bean.ConsumeBean;
 import com.example.wang.myapplication.R;
-import com.example.wang.myapplication.UI.Consume.ConsumeListAdapter;
 
 /**
  * Created by wang on 2015/5/5.
@@ -34,29 +33,18 @@ public class ConsumeListItemView extends LinearLayout implements View.OnClickLis
     public ConsumeListItemView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
-    @Override
-    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-    }
-
-    @Override
-    public void onLayout(boolean changed, int l, int t, int r, int b) {
-    }
-
-    @Override
-    public void onDraw(Canvas canvas) {
-
-    }
 
     @Override
     public void onFinishInflate(){
-        inflate(getContext(), R.layout.consume_listview_item, this);
-        super.onFinishInflate();
+        inflate(getContext(), R.layout.consume_listview_item,this);
         consume_cost = (TextView)findViewById(R.id.consume_cost);
         consume_cost.setOnClickListener(this);
+        super.onFinishInflate();
     }
 
-    public void setData(ConsumeListAdapter.ViewHolder viewHolder){
-        //TODO add set data op
+
+    public void setData(ConsumeBean bean){
+        consume_cost.setText(String.valueOf(bean.getCost()));
     }
 
     public static ConsumeListItemView build(Context context){

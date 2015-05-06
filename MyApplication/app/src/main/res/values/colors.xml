@@ -2,6 +2,8 @@
 <resources>
     <color name="transparent">#00ffffff</color>
     <color name="background">#f6f3ee</color>
+    <color name="actionbar_bg">#ef683c</color>
+    <color name="actionbar_text_color">#ffffff</color>
 
     <color name="light_red">#ef683c</color>
     <color name="orange">#ef683c</color>
