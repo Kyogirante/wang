@@ -75,6 +75,9 @@
         <attr name="ptrAdapterViewBackground" format="reference|color" />
         <attr name="ptrDrawableTop" format="reference" />
         <attr name="ptrDrawableBottom" format="reference" />
+
+        <!-- add by wangkyo-->
+        <attr name="ptrFooterLayout" format="reference"/>
     </declare-styleable>
 
 </resources>

@@ -16,12 +16,10 @@
             android:divider="@color/transparent"
             android:dividerHeight="@dimen/margin_padding_15"
             android:scrollbars="none"
-            ptr:ptrAnimationStyle="flip"
-            ptr:ptrNoValidMoreUserDefinedMode="footer"
-            ptr:ptrUD_footer_layout="@layout/consume_list_footer"
             ptr:ptrDrawable="@drawable/icon_pull"
-            ptr:ptrFlipStyleImageTextLayout="close"
-            ptr:ptrProgressBarSrc="@drawable/progress_bar_loading"/>
+            ptr:ptrAnimationStyle="flip"
+            ptr:ptrFooterLayout="@layout/consume_list_footer"
+            ptr:ptrMode="pullFromStart"/>
     </LinearLayout>
 
     <LinearLayout

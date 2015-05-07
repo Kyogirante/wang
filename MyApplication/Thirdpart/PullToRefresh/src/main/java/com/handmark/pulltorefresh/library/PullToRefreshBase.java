@@ -34,6 +34,7 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.handmark.pulltorefresh.library.internal.CustomLoadingLayout;
 import com.handmark.pulltorefresh.library.internal.FlipLoadingLayout;
 import com.handmark.pulltorefresh.library.internal.LoadingLayout;
 import com.handmark.pulltorefresh.library.internal.RotateLoadingLayout;
@@ -92,6 +93,9 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 	private LoadingLayout mHeaderLayout;
 	private LoadingLayout mFooterLayout;
+
+    private boolean showFooter = false;
+    private LoadingLayout mViewFooterLayout;
 
 	private OnRefreshListener<T> mOnRefreshListener;
 	private OnRefreshListener2<T> mOnRefreshListener2;
@@ -545,6 +549,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		switch (mState) {
 			case RESET:
 				onReset();
+				getmFooterLayout().hideAllViews();
 				break;
 			case PULL_TO_REFRESH:
 				onPullToRefresh();
@@ -590,6 +595,9 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		return layout;
 	}
 
+	protected LoadingLayout createCustomFooterLayout(Context context, Mode mode, TypedArray attrs){
+		return new CustomLoadingLayout(context,mode,getPullToRefreshScrollDirection(),attrs);
+	}
 	/**
 	 * Used internally for {@link #getLoadingLayoutProxy(boolean, boolean)}.
 	 * Allows derivative classes to include any extra LoadingLayouts.
@@ -642,6 +650,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 	protected final int getHeaderSize() {
 		return mHeaderLayout.getContentSize();
 	}
+
+    protected final LoadingLayout getmFooterLayout(){
+		return mViewFooterLayout;
+    }
 
 	protected int getPullToRefreshScrollDuration() {
 		return SMOOTH_SCROLL_DURATION_MS;
@@ -863,7 +875,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 			public void run() {
 				requestLayout();
 			}
-		});
+        });
 	}
 
 	/**
@@ -1033,9 +1045,16 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 			addViewInternal(mHeaderLayout, 0, lp);
 		}
 
+
 		// Remove Footer, and then add Footer Loading View again if needed
+		if (this == mViewFooterLayout.getParent()){
+			removeView(mViewFooterLayout);
+		}
+		if(showFooter){
+			addViewInternal(mViewFooterLayout,lp);
+		}
 		if (this == mFooterLayout.getParent()) {
-			removeView(mFooterLayout);
+            removeView(mFooterLayout);
 		}
 		if (mMode.showFooterLoadingLayout()) {
 			addViewInternal(mFooterLayout, lp);
@@ -1111,6 +1130,11 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		/**
 		 * Styleables from XML
 		 */
+        if(a.hasValue(R.styleable.PullToRefresh_ptrFooterLayout)){
+            showFooter  = true;
+            mViewFooterLayout = createCustomFooterLayout(context, Mode.PULL_FROM_END, a);
+        }
+
 		if (a.hasValue(R.styleable.PullToRefresh_ptrRefreshableViewBackground)) {
 			Drawable background = a.getDrawable(R.styleable.PullToRefresh_ptrRefreshableViewBackground);
 			if (null != background) {
@@ -1331,6 +1355,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 			}
 		}
 	}
+
 
 	public static enum Mode {
 

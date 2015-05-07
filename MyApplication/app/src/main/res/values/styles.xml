@@ -34,9 +34,10 @@
 
     <style name="MyActionBar" parent="android:Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/actionbar_bg</item>
+        <item name="android:textSize">@dimen/text_size_17</item>
     </style>
     <style name="MyActionBarMenu" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Menu">
-        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:textSize">@dimen/text_size_17</item>
         <item name="android:textColor">@color/actionbar_text_color</item>
     </style>
 </resources>

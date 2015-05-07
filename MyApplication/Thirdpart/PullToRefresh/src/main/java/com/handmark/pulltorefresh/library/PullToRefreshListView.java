@@ -26,6 +26,7 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -36,6 +37,10 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 
 	private LoadingLayout mHeaderLoadingView;
 	private LoadingLayout mFooterLoadingView;
+
+	private LoadingLayout mFooterLayoutView;
+
+	private LinearLayout mLvFooterLinearLayout;
 
 	private FrameLayout mLvFooterLoadingFrame;
 
@@ -238,6 +243,11 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 			frame.addView(mHeaderLoadingView, lp);
 			mRefreshableView.addHeaderView(frame, null, false);
 
+			mLvFooterLinearLayout = new LinearLayout(getContext());
+			mFooterLayoutView = createCustomFooterLayout(getContext(), Mode.PULL_FROM_END,a);
+			mFooterLayoutView.setVisibility(View.GONE);
+			mLvFooterLinearLayout.addView(mFooterLayoutView,lp);
+
 			mLvFooterLoadingFrame = new FrameLayout(getContext());
 			mFooterLoadingView = createLoadingLayout(getContext(), Mode.PULL_FROM_END, a);
 			mFooterLoadingView.setVisibility(View.GONE);
@@ -313,6 +323,10 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 
 		@Override
 		public void setAdapter(ListAdapter adapter) {
+			if(null != mLvFooterLinearLayout){
+				addFooterView(mLvFooterLinearLayout, null, false);
+			}
+
 			// Add the Footer View at the last possible moment
 			if (null != mLvFooterLoadingFrame && !mAddedLvFooter) {
 				addFooterView(mLvFooterLoadingFrame, null, false);
