@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.wang.myapplication.UI.AutoViewPage.AutoViewPageActivity;
 import com.example.wang.myapplication.BaseActivity;
 import com.example.wang.myapplication.R;
+import com.example.wang.myapplication.UI.AutoViewPage.AutoViewPageActivity;
 import com.example.wang.myapplication.UI.Consume.ConsumeListActivity;
 
 

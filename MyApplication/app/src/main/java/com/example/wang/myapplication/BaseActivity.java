@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 /**
  * Created by wang on 2015/5/4.
@@ -46,4 +47,9 @@ public class BaseActivity extends Activity{
     public void onBackPressed(){
         super.onBackPressed();
     }
+
+    public void showLengthMsgToast(String msg){
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+    }
+
 }

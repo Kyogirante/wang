@@ -549,7 +549,6 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		switch (mState) {
 			case RESET:
 				onReset();
-				getmFooterLayout().hideAllViews();
 				break;
 			case PULL_TO_REFRESH:
 				onPullToRefresh();
@@ -654,6 +653,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
     protected final LoadingLayout getmFooterLayout(){
 		return mViewFooterLayout;
     }
+
+	protected final int getmFooterSize(){
+		return mViewFooterLayout.getContentSize();
+	}
 
 	protected int getPullToRefreshScrollDuration() {
 		return SMOOTH_SCROLL_DURATION_MS;
@@ -875,7 +878,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 			public void run() {
 				requestLayout();
 			}
-        });
+		});
 	}
 
 	/**
@@ -921,6 +924,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 				} else {
 					pBottom = 0;
 				}
+
 				break;
 		}
 
@@ -1047,12 +1051,6 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 
 
 		// Remove Footer, and then add Footer Loading View again if needed
-		if (this == mViewFooterLayout.getParent()){
-			removeView(mViewFooterLayout);
-		}
-		if(showFooter){
-			addViewInternal(mViewFooterLayout,lp);
-		}
 		if (this == mFooterLayout.getParent()) {
             removeView(mFooterLayout);
 		}
@@ -1130,11 +1128,6 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		/**
 		 * Styleables from XML
 		 */
-        if(a.hasValue(R.styleable.PullToRefresh_ptrFooterLayout)){
-            showFooter  = true;
-            mViewFooterLayout = createCustomFooterLayout(context, Mode.PULL_FROM_END, a);
-        }
-
 		if (a.hasValue(R.styleable.PullToRefresh_ptrRefreshableViewBackground)) {
 			Drawable background = a.getDrawable(R.styleable.PullToRefresh_ptrRefreshableViewBackground);
 			if (null != background) {

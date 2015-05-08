@@ -2,12 +2,13 @@ package com.example.wang.myapplication.Bean;
 
 import com.example.wang.myapplication.Utils.Bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by haha201 on 2015/5/4.
  */
-public class ConsumeBean extends Bean {
+public class ConsumeBean extends Bean implements Serializable{
 
 
     private double cost;

@@ -3,18 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="@dimen/margin_padding_15"
-    android:layout_marginLeft="@dimen/margin_padding_15"
-    android:background="@color/background"
+    android:gravity="center"
+    android:background="@drawable/list_view_bg"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/consume_cost"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/margin_padding_80"
         android:gravity="center"
-        android:background="@color/light_red"
         android:textColor="@color/text_color_white"
+        android:focusable="false"
         android:textSize="@dimen/text_size_20"
         android:text="@string/rmb"/>
 

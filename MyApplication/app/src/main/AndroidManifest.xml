@@ -9,23 +9,48 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".UI.Home.MainActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".UI.AutoViewPage.AutoViewPageActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
             android:label="AutoViewPage"
             android:theme="@style/AppTheme.NoTitle.FullScreen" >
+            <intent-filter>
+                <action android:name="com.wang.autopage"/>
+                <category android:name="android.intent.category.default"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".UI.Consume.ConsumeListActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_consume_list"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.wang.consume"/>
+                <category android:name="android.intent.category.default"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".UI.Consume.EditConsumeActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_edit"
             android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="com.wang.edit"/>
+                <category android:name="android.intent.category.default"/>
+            </intent-filter>
         </activity>
     </application>
 

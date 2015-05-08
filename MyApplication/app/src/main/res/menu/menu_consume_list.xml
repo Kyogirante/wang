@@ -4,7 +4,7 @@
     tools:context="com.example.wang.myapplication.UI.Consume.ConsumeListActivity">
     <item
         android:id="@+id/action_edit"
-        android:title="@string/title_action_edit"
+        android:title="@string/menu_edit"
         android:visible="true"
         android:showAsAction="always" />
 </menu>

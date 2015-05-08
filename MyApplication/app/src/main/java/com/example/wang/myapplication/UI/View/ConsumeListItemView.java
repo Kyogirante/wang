@@ -73,6 +73,7 @@ public class ConsumeListItemView extends LinearLayout implements View.OnClickLis
         int id = view.getId();
         switch (id){
             case R.id.consume_cost:
+                consume_cost.setText("u click m");
                 break;
             default:
                 break;

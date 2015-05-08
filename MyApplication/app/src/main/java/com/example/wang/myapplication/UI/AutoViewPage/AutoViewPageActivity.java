@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.wang.myapplication.R;
+import com.example.wang.myapplication.Utils.IntentActionUtils;
 
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
@@ -50,7 +51,7 @@ public class AutoViewPageActivity extends Activity implements ViewPager.OnPageCh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.auto_view_page);
+        setContentView(R.layout.activity_auto_view_page);
         initView();
     }
 
@@ -108,7 +109,7 @@ public class AutoViewPageActivity extends Activity implements ViewPager.OnPageCh
     public void onPageScrolled(int arg0, float arg1, int arg2) {
         Log.v(TAG, "arg0------>" + String.valueOf(arg0));
         Log.v(TAG,"arg1------>" + String.valueOf(arg1));
-        Log.v(TAG,"arg2------>" + String.valueOf(arg2));
+        Log.v(TAG, "arg2------>" + String.valueOf(arg2));
 
     }
 
@@ -131,11 +132,6 @@ public class AutoViewPageActivity extends Activity implements ViewPager.OnPageCh
         super.onDestroy();
     }
 
-    public static void intentAction(Context context){
-        Intent intent = new Intent(context, AutoViewPageActivity.class);
-        context.startActivity(intent);
-    }
-
     private class ScrollTask implements Runnable {
 
         public void run() {
@@ -147,5 +143,11 @@ public class AutoViewPageActivity extends Activity implements ViewPager.OnPageCh
             }
         }
 
+    }
+
+    public static void intentAction(Context context){
+        Intent intent = new Intent(context, AutoViewPageActivity.class);
+        intent.setAction(IntentActionUtils.TO_AUTO_PAGE);
+        context.startActivity(intent);
     }
 }

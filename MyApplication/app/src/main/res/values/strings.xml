@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">My Application</string>
     <string name="hello_world">hello</string>
     <string name="viewpager_btn_text">滑动页面</string>
     <string name="listview_btn_text">列表页面</string>
-    <string name="title_action_edit">编辑</string>
-    <string name="add">添加</string>
-    <string name="desc_msg">并不能有更多~</string>
-    <string name="rmb">¥</string>
-    <string name="title_activity_consume_list">账单</string>
+    <string name="add_btn_text">添加</string>
+    <string name="delete_btn_text">删除</string>
 
+    <string name="menu_edit">编辑</string>
+    <string name="menu_all_select">全选</string>
+    <string name="menu_del">删除</string>
+
+    <string name="title_activity_consume_list">账单</string>
+    <string name="title_edit">用钱了你知道吗</string>
+
+    <string name="desc_msg">并不能有更多~</string>
+
+    <string name="rmb">¥</string>
 </resources>
