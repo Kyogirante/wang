@@ -31,7 +31,10 @@ public class ConsumeDao extends BaseDao{
     }
 
     public static void onUpdateTable(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //TODO db update
+        if(oldVersion < 1){
+            db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME);
+            onCreateTable(db);
+        }
     }
 
     public synchronized static void insertConsume(Context context, ConsumeBean bean){
