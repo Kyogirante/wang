@@ -14,11 +14,19 @@
         android:text="@string/viewpager_btn_text"/>
 
     <Button
-        android:id="@+id/listview_btn"
+    android:id="@+id/listview_btn"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/btn_height"
+    android:layout_marginTop="@dimen/margin_padding_10"
+    style="@style/Button.Red"
+    android:text="@string/listview_btn_text"/>
+
+    <Button
+        android:id="@+id/animation_btn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/btn_height"
         android:layout_marginTop="@dimen/margin_padding_10"
         style="@style/Button.Red"
-        android:text="@string/listview_btn_text"/>
+        android:text="@string/animation_btn_text"/>
 
 </LinearLayout>

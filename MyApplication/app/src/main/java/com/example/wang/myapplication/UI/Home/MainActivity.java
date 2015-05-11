@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import com.example.wang.myapplication.BaseActivity;
 import com.example.wang.myapplication.R;
+import com.example.wang.myapplication.UI.Animation.AnimationActivity;
 import com.example.wang.myapplication.UI.AutoViewPage.AutoViewPageActivity;
 import com.example.wang.myapplication.UI.Consume.ConsumeListActivity;
 
@@ -14,6 +15,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private Button viewpager_btn;
     private Button listview_btn;
+    private Button animation_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +23,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         viewpager_btn = (Button)findViewById(R.id.viewpager_btn);
         listview_btn = (Button)findViewById(R.id.listview_btn);
+        animation_btn =(Button)findViewById(R.id.animation_btn);
 
         viewpager_btn.setOnClickListener(this);
         listview_btn.setOnClickListener(this);
+        animation_btn.setOnClickListener(this);
+
         getActionBar().setDisplayHomeAsUpEnabled(false);
         getActionBar().setHomeButtonEnabled(false);
     }
@@ -38,8 +43,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case R.id.listview_btn:
                 ConsumeListActivity.intentAction(this);
                 break;
+            case R.id.animation_btn:
+                AnimationActivity.intentAction(this);
+                break;
             default:
                 break;
         }
+        overridePendingTransition(R.anim.from_right_in, R.anim.from_left_out);
     }
 }

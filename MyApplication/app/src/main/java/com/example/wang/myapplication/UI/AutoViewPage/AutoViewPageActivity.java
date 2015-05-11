@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.wang.myapplication.R;
+import com.example.wang.myapplication.UI.Home.MainActivity;
 import com.example.wang.myapplication.Utils.IntentActionUtils;
 
 import java.util.ArrayList;
@@ -144,6 +145,17 @@ public class AutoViewPageActivity extends Activity implements ViewPager.OnPageCh
         }
 
     }
+
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        this.startActivity(intent);
+        this.finish();
+        overridePendingTransition(R.anim.from_left_in, R.anim.from_right_out);
+    }
+
 
     public static void intentAction(Context context){
         Intent intent = new Intent(context, AutoViewPageActivity.class);

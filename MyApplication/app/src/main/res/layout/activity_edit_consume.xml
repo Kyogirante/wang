@@ -2,15 +2,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/margin_padding_15"
+    android:layout_marginRight="@dimen/margin_padding_15"
     android:orientation="vertical"
     tools:context="com.example.wang.myapplication.UI.Consume.EditConsumeActivity">
 
-    <TextView
-        android:id="@+id/cost_text"
+    <EditText
+        android:id="@+id/cost_edit"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="@string/hello_world"/>
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_marginTop="@dimen/margin_padding_15"
+        android:textSize="@dimen/text_size_18"
+        android:text="150"/>
+    <EditText
+        android:id="@+id/category_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_15"
+        android:textSize="@dimen/text_size_18"
+        android:text="娱乐"/>
+    <EditText
+        android:id="@+id/describe_msg_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_padding_15"
+        android:textSize="@dimen/text_size_18"
+        android:text="妇联2"/>
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_padding_40"
+        android:layout_marginTop="@dimen/margin_padding_15"
+        style="@style/Button.Red"
+        android:text="@string/save_btn_text"/>
 
 </LinearLayout>

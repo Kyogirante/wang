@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.example.wang.myapplication.BaseActivity;
 import com.example.wang.myapplication.Bean.ConsumeBean;
 import com.example.wang.myapplication.R;
+import com.example.wang.myapplication.UI.Home.MainActivity;
 import com.example.wang.myapplication.Utils.IntentActionUtils;
 
 import java.util.ArrayList;
@@ -106,7 +107,7 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
         int id = v.getId();
         switch (id){
             case R.id.btn_add:
-                showLengthMsgToast("u click btn_add");
+                EditConsumeActivity.intentAction(this, null);
                 break;
             case R.id.btn_del:
                 showLengthMsgToast("u click btn_del");
@@ -134,6 +135,14 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
         return true;
     }
 
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        this.startActivity(intent);
+        this.finish();
+        overridePendingTransition(R.anim.from_left_in, R.anim.from_right_out);
+    }
     /**
      * define listener
      */
@@ -151,6 +160,7 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             EditConsumeActivity.intentAction(ConsumeListActivity.this,adapter.getList().get(i));
+            overridePendingTransition(R.anim.from_right_in, R.anim.from_left_out);
         }
     };
 
