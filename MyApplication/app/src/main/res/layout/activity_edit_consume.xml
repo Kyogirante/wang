@@ -15,21 +15,21 @@
         android:ems="10"
         android:layout_marginTop="@dimen/margin_padding_15"
         android:textSize="@dimen/text_size_18"
-        android:text="150"/>
+        android:hint="消费"/>
     <EditText
         android:id="@+id/category_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_padding_15"
         android:textSize="@dimen/text_size_18"
-        android:text="娱乐"/>
+        android:hint="类别"/>
     <EditText
         android:id="@+id/describe_msg_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_padding_15"
         android:textSize="@dimen/text_size_18"
-        android:text="妇联2"/>
+        android:hint="备注"/>
     <Button
         android:id="@+id/btn_save"
         android:layout_width="match_parent"

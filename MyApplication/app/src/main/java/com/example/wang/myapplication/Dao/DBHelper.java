@@ -1,6 +1,7 @@
 package com.example.wang.myapplication.Dao;
 
 import android.content.Context;
+import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -9,24 +10,28 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DBHelper extends SQLiteOpenHelper{
 
-    public static final String DB_NAME = "test.db";
-    public static final int DB_VERSION = 1;
+    private static final String DB_NAME = "wang.db";
+    private static final int DB_VERSION = 1;
 
-    public static DBHelper dbHelper = null;
+    private static DBHelper mDBHelper = null;
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
+    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
+        super(context, name, factory, version, errorHandler);
+    }
+
     public static DBHelper getInstance(Context context){
-        if(dbHelper == null){
+        if(mDBHelper == null){
             synchronized (DBHelper.class){
-                if(dbHelper == null){
-                    dbHelper = new DBHelper(context);
+                if(mDBHelper == null){
+                    mDBHelper = new DBHelper(context);
                 }
             }
         }
-        return dbHelper;
+        return mDBHelper;
     }
 
     public synchronized static SQLiteDatabase getWritableDataBase(Context context){
@@ -40,12 +45,10 @@ public class DBHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         ConsumeDao.onCreateTable(sqLiteDatabase);
-        //TODO create db table
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         ConsumeDao.onUpdateTable(sqLiteDatabase,oldVersion,newVersion);
-        //TODO update db table
     }
 }

@@ -34,19 +34,24 @@ public class ConsumeListAdapter extends ArrayListAdapter<ConsumeBean>{
             itemView = ConsumeListItemView.build(getContext());
             viewHolder = new ViewHolder();
             viewHolder.cost = (TextView)itemView.findViewById(R.id.consume_cost);
+            viewHolder.category =(TextView)itemView.findViewById(R.id.consume_category);
+            viewHolder.describe_msg = (TextView)itemView.findViewById(R.id.consume_describe_msg);
             itemView.setTag(viewHolder);
         }else {
             itemView = (ConsumeListItemView)convertView;
             viewHolder = (ViewHolder)convertView.getTag();
         }
-        viewHolder.cost.setText(String.valueOf(bean.getCost()));
+        viewHolder.cost.setText("¥" + "\n" + String.valueOf(bean.getCost()));
+        viewHolder.category.setText(bean.getCategory());
+        viewHolder.describe_msg.setText(bean.getDescribe_msg());
 
-        itemView.setData(bean);
         return itemView;
     }
 
     public class ViewHolder{
         public TextView cost;
+        public TextView category;
+        public TextView describe_msg;
     }
 
 }

@@ -1,7 +1,9 @@
 package com.example.wang.myapplication.UI.View;
 
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.example.wang.myapplication.R;
 public class ConsumeListItemView extends LinearLayout implements View.OnClickListener{
 
     private TextView consume_cost;
+    private TextView consume_category;
+    private TextView consume_describe_msg;
 
     public ConsumeListItemView(Context context) {
         super(context);
@@ -39,6 +43,8 @@ public class ConsumeListItemView extends LinearLayout implements View.OnClickLis
     public void onFinishInflate(){
         inflate(getContext(), R.layout.consume_listview_item,this);
         consume_cost = (TextView)findViewById(R.id.consume_cost);
+        consume_category = (TextView)findViewById(R.id.consume_category);
+        consume_describe_msg = (TextView)findViewById(R.id.consume_describe_msg);
         consume_cost.setOnClickListener(this);
         super.onFinishInflate();
     }
@@ -73,10 +79,29 @@ public class ConsumeListItemView extends LinearLayout implements View.OnClickLis
         int id = view.getId();
         switch (id){
             case R.id.consume_cost:
-                consume_cost.setText("u click m");
+                new AlertDialog.Builder(getContext(),AlertDialog.THEME_DEVICE_DEFAULT_DARK)
+                        .setTitle("具体信息")
+                        .setMessage(getShowMsg())
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).create().show();
                 break;
             default:
                 break;
         }
+    }
+
+    public String getShowMsg(){
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("消费: ");
+        stringBuffer.append(consume_cost.getText().toString());
+        stringBuffer.append("TT类别: ");
+        stringBuffer.append(consume_category.getText().toString());
+        stringBuffer.append("TT备注: ");
+        stringBuffer.append(consume_describe_msg.getText().toString());
+        return stringBuffer.toString().replaceAll("\n","").replaceAll("TT", "\n");
     }
 }

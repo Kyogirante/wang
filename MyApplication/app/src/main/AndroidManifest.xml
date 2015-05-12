@@ -66,6 +66,11 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <activity android:name=".UI.Animation.Arcs"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_animation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

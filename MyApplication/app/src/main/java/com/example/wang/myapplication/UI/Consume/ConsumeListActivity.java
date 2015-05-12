@@ -3,18 +3,23 @@ package com.example.wang.myapplication.UI.Consume;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.wang.myapplication.BaseActivity;
 import com.example.wang.myapplication.Bean.ConsumeBean;
+import com.example.wang.myapplication.Dao.ConsumeDao;
 import com.example.wang.myapplication.R;
 import com.example.wang.myapplication.UI.Home.MainActivity;
+import com.example.wang.myapplication.Utils.AppUtils;
 import com.example.wang.myapplication.Utils.IntentActionUtils;
 
 import java.util.ArrayList;
@@ -30,35 +35,77 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
     private View footerView;
     private Button add_btn;
     private Button del_btn;
+    private TextView desc_msg;
+
     private boolean showEditMenu = true;
+    private boolean showMenu = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consume_list);
+        desc_msg = (TextView)findViewById(R.id.desc_msg);
+
         add_btn = (Button)findViewById(R.id.btn_add);
         del_btn = (Button)findViewById(R.id.btn_del);
-        listView = (UserDefaultListView)findViewById(R.id.consume_listView);
-
-        footerView = LayoutInflater.from(this).inflate(R.layout.consume_list_footer, null, false);
-        listView.addFooterView(footerView);
 
         add_btn.setOnClickListener(this);
         del_btn.setOnClickListener(this);
 
-        listView.setAdapter(getAdapter());
+        listView = (UserDefaultListView)findViewById(R.id.consume_listView);
+    }
 
-        listView.setOnItemClickListener(onItemClickListener);
+    @Override
+    public void onResume(){
+        super.onResume();
+        adapter = getAdapter();
+        if(adapter.getCount() < 1){
+            listView.setVisibility(View.GONE);
+            desc_msg.setVisibility(View.VISIBLE);
+            showMenu = false;
+        } else {
+            listView.setVisibility(View.VISIBLE);
+            desc_msg.setVisibility(View.GONE);
 
-        listView.setOnItemLongClickListener(onItemLongClickListener);
+            footerView = LayoutInflater.from(this).inflate(R.layout.consume_list_footer, null, false);
+            listView.addFooterView(footerView);
 
-        listView.setOnScrollListener(onScrollListener);
+            listView.setAdapter(getAdapter());
+
+            listView.setOnTouchListener(onTouchListener);
+
+            listView.setOnItemClickListener(onItemClickListener);
+
+            listView.setOnItemLongClickListener(onItemLongClickListener);
+
+            listView.setOnScrollListener(onScrollListener);
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_consume_allselect, menu);
-        getMenuInflater().inflate(R.menu.menu_consume_list, menu);
+        if(showMenu){
+            getMenuInflater().inflate(R.menu.menu_consume_allselect, menu);
+            getMenuInflater().inflate(R.menu.menu_consume_list, menu);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu){
+        super.onPrepareOptionsMenu(menu);
+        if(showMenu){
+            if(showEditMenu){
+                menu.getItem(0).setVisible(false);
+                menu.getItem(1).setVisible(true);
+                showEditMenu = false;
+            } else {
+                menu.getItem(0).setVisible(true);
+                menu.getItem(1).setVisible(false);
+                //需要修改设置参数地方
+                showEditMenu = true;
+            }
+        }
         return true;
     }
 
@@ -67,9 +114,11 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
         int id = item.getItemId();
 
         switch (id){
-            case R.menu.menu_consume_list:
+            case R.id.action_edit:
+                Log.e(AppUtils.LOG_TAG, "menu action_edit");
                 break;
-            case R.menu.menu_consume_allselect:
+            case R.id.action_all_select:
+                Log.e(AppUtils.LOG_TAG, "menu ");
                 break;
             default:
                 break;
@@ -84,16 +133,9 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
     }
 
     private List<ConsumeBean> getData(){
-        //get data from DB
+        //get data from DB;
         List<ConsumeBean> data = new ArrayList<>();
-        ConsumeBean bean;
-        for(int i = 0; i < 10; i ++){
-            bean = new ConsumeBean();
-            bean.setCost(i*2.0f);
-            bean.setCategory(""+i);
-            data.add(bean);
-        }
-
+        data = ConsumeDao.queryAllConsume(getApplicationContext());
         return data;
     }
 
@@ -104,10 +146,12 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
      */
     @Override
     public void onClick(View v) {
+        Log.e(AppUtils.LOG_TAG, "click");
         int id = v.getId();
         switch (id){
             case R.id.btn_add:
                 EditConsumeActivity.intentAction(this, null);
+                overridePendingTransition(R.anim.from_right_in, R.anim.from_left_out);
                 break;
             case R.id.btn_del:
                 showLengthMsgToast("u click btn_del");
@@ -117,22 +161,6 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
             default:
                 break;
         }
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu){
-        super.onPrepareOptionsMenu(menu);
-        if(showEditMenu){
-            menu.getItem(0).setVisible(false);
-            menu.getItem(1).setVisible(true);
-            showEditMenu = false;
-        } else {
-            menu.getItem(0).setVisible(true);
-            menu.getItem(1).setVisible(false);
-            //需要修改设置参数地方
-            showEditMenu = true;
-        }
-        return true;
     }
 
     @Override
@@ -146,6 +174,33 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
     /**
      * define listener
      */
+    private View.OnTouchListener onTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            int XDownRaw;
+            int xDown;
+            int yDown;
+            int itemPositon;
+            int action = event.getAction();
+            switch (action){
+                case MotionEvent.ACTION_DOWN:
+                    XDownRaw = (int)event.getRawX();//相对屏幕坐标
+                    xDown = (int)event.getX();
+                    yDown = (int)event.getY();//相对容器坐标
+                    itemPositon = listView.pointToPosition(xDown,yDown);//无效返回-1
+                    Log.v(AppUtils.LOG_TAG," " +itemPositon);
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    break;
+                case MotionEvent.ACTION_UP:
+                    break;
+                default:
+                    break;
+            }
+            return false;
+        }
+    };
+
     private AdapterView.OnItemLongClickListener onItemLongClickListener = new AdapterView.OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {

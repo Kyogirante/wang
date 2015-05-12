@@ -18,6 +18,16 @@
             android:divider="@color/transparent"
             android:dividerHeight="@dimen/margin_padding_15"
             android:scrollbars="none" />
+        <TextView
+            android:id="@+id/desc_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_padding_15"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_16"
+            android:textColor="@color/text_color_medium"
+            android:text="@string/desc_no_consume_msg"
+            android:visibility="gone"/>
     </LinearLayout>
 
     <LinearLayout

@@ -2,20 +2,59 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="100dp"
     android:gravity="center"
     android:background="@drawable/list_view_bg"
     android:descendantFocusability="blocksDescendants"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/consume_cost"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/margin_padding_80"
         android:layout_height="@dimen/margin_padding_80"
+        android:layout_marginLeft="@dimen/margin_padding_10"
         android:gravity="center"
+        android:lineSpacingExtra="@dimen/margin_padding_5"
+        android:background="@drawable/list_view_item_cost_bg"
         android:textColor="@color/text_color_white"
         android:focusable="false"
-        android:textSize="@dimen/text_size_20"
+        android:textSize="@dimen/text_size_18"
         android:text="@string/rmb"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/margin_padding_10"
+        android:layout_marginBottom="@dimen/margin_padding_10"
+        android:layout_marginLeft="@dimen/margin_padding_20"
+        android:layout_marginRight="@dimen/margin_padding_10"
+        android:divider="@drawable/divider_horizontal"
+        android:showDividers="middle"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/consume_category"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/margin_padding_10"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_16"
+            android:textColor="@color/text_color_medium"/>
+        <TextView
+            android:id="@+id/consume_describe_msg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/margin_padding_10"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_16"
+            android:textColor="@color/text_color_medium" />
+    </LinearLayout>
 
 </LinearLayout>
