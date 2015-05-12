@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.wang.myapplication.UI.Consume.ConsumeListActivity">
     <item
-        android:id="@+id/action_edit"
+        android:id="@+id/action_all_select"
         android:title="@string/menu_all_select"
         android:visible="true"
         android:showAsAction="always" />
