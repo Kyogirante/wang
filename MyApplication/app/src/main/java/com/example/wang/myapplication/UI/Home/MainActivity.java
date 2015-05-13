@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.example.wang.myapplication.BaseActivity;
 import com.example.wang.myapplication.R;
 import com.example.wang.myapplication.UI.Animation.AnimationActivity;
+import com.example.wang.myapplication.UI.Animation.AnimationGroupActivity;
 import com.example.wang.myapplication.UI.Animation.Arcs;
 import com.example.wang.myapplication.UI.AutoViewPage.AutoViewPageActivity;
 import com.example.wang.myapplication.UI.Consume.ConsumeListActivity;
@@ -19,6 +20,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private Button listview_btn;
     private Button animation_btn;
     private Button arcs_btn;
+    private Button animation_group_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +30,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         listview_btn = (Button)findViewById(R.id.listview_btn);
         animation_btn =(Button)findViewById(R.id.animation_btn);
         arcs_btn = (Button)findViewById(R.id.arcs_btn);
+        animation_group_btn = (Button)findViewById(R.id.animation_group_btn);
 
         viewpager_btn.setOnClickListener(this);
         listview_btn.setOnClickListener(this);
         animation_btn.setOnClickListener(this);
         arcs_btn.setOnClickListener(this);
+        animation_group_btn.setOnClickListener(this);
 
         getActionBar().setDisplayHomeAsUpEnabled(false);
         getActionBar().setHomeButtonEnabled(false);
@@ -54,6 +58,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case R.id.arcs_btn:
                 Intent intent = new Intent(this, Arcs.class);
                 startActivity(intent);
+                break;
+            case R.id.animation_group_btn:
+                AnimationGroupActivity.intentAction(this);
+                break;
             default:
                 break;
         }

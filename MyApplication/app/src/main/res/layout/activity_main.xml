@@ -37,4 +37,12 @@
         style="@style/Button.Red"
         android:text="@string/animation_btn_text"/>
 
+    <Button
+        android:id="@+id/animation_group_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginTop="@dimen/margin_padding_10"
+        style="@style/Button.Red"
+        android:text="@string/title_activity_animation_group"/>
+
 </LinearLayout>
