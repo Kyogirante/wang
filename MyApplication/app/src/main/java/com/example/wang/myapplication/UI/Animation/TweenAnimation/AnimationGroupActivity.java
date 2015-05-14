@@ -1,4 +1,4 @@
-package com.example.wang.myapplication.UI.Animation;
+package com.example.wang.myapplication.UI.Animation.TweenAnimation;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,6 +25,7 @@ public class AnimationGroupActivity extends BaseActivity implements View.OnClick
     private Button translate_btn;
     private Button alpha_btn;
     private Button circle_btn;
+    private Button canvas_circle_btn;
 
     private TextView circle_text;
     private View circle_view;
@@ -44,12 +45,14 @@ public class AnimationGroupActivity extends BaseActivity implements View.OnClick
         translate_btn = (Button)findViewById(R.id.translate_btn);
         alpha_btn = (Button)findViewById(R.id.alpha_btn);
         circle_btn = (Button)findViewById(R.id.circle_btn);
+        canvas_circle_btn = (Button)findViewById(R.id.canvas_circle_btn);
 
         scale_btn.setOnClickListener(this);
         rotate_btn.setOnClickListener(this);
         translate_btn.setOnClickListener(this);
         alpha_btn.setOnClickListener(this);
         circle_btn.setOnClickListener(this);
+        canvas_circle_btn.setOnClickListener(this);
 
     }
 
@@ -118,6 +121,9 @@ public class AnimationGroupActivity extends BaseActivity implements View.OnClick
 //                scale_animation2.setRepeatMode(Animation.RESTART);
                 Animation scale_animation_set2 = AnimationUtils.loadAnimation(AnimationGroupActivity.this, R.anim.circle_scale);
                 circle_text.startAnimation(scale_animation_set2);
+                break;
+            case R.id.canvas_circle_btn:
+
                 break;
             default:
                 break;

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.wang.myapplication.UI.Animation.AnimationActivity">
+    tools:context="com.example.wang.myapplication.UI.Animation.AnimationBackground.AnimationActivity">
 
     <ImageView
         android:id="@+id/animation_image_view"

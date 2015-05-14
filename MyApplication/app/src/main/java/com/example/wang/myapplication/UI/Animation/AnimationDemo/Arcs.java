@@ -1,4 +1,4 @@
-package com.example.wang.myapplication.UI.Animation;
+package com.example.wang.myapplication.UI.Animation.AnimationDemo;
 
 import android.content.Context;
 import android.graphics.Canvas;

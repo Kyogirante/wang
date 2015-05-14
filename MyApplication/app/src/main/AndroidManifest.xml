@@ -59,7 +59,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UI.Animation.AnimationActivity"
+            android:name=".UI.Animation.AnimationBackground.AnimationActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_animation"
             android:screenOrientation="portrait"
@@ -71,16 +71,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UI.Animation.Arcs"
+            android:name=".UI.Animation.AnimationDemo.Arcs"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_animation"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".UI.Animation.AnimationGroupActivity"
+            android:name=".UI.Animation.TweenAnimation.AnimationGroupActivity"
             android:label="@string/title_activity_animation_group"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".UI.Animation.CanvasCircle.CanvasCircleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_canvas_circle"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".UI.Animation.AnimationDirectoryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_animation_directory"
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.wang.myapplication.UI.Animation;
+package com.example.wang.myapplication.UI.Animation.AnimationBackground;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,7 @@ import android.widget.ImageView;
 
 import com.example.wang.myapplication.BaseActivity;
 import com.example.wang.myapplication.R;
-import com.example.wang.myapplication.UI.Home.MainActivity;
+import com.example.wang.myapplication.UI.Animation.AnimationDirectoryActivity;
 import com.example.wang.myapplication.Utils.IntentActionUtils;
 
 public class AnimationActivity extends BaseActivity{
@@ -28,7 +28,7 @@ public class AnimationActivity extends BaseActivity{
 
     @Override
     public void onBackPressed(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, AnimationDirectoryActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         this.startActivity(intent);
         this.finish();

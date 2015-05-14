@@ -5,11 +5,15 @@
     <string name="viewpager_btn_text">滑动页面</string>
     <string name="listview_btn_text">列表页面</string>
     <string name="animation_btn_text">动画页面</string>
+    <string name="arcs_btn_text">动画demo</string>
     <string name="scale_btn_text">伸缩</string>
     <string name="rotate_btn_text">旋转</string>
     <string name="translate_btn_text">移动</string>
     <string name="alpha_btn_text">透明度</string>
     <string name="circle_btn_text">圆环</string>
+    <string name="canvas_circle_btn_text">绘制圆环</string>
+    <string name="animation_directory_btn_text">动画列表</string>
+    <string name="property_animation_btn_text">绘制圆环</string>
 
     <string name="save_btn_text">保存</string>
     <string name="add_btn_text">添加</string>
@@ -24,6 +28,9 @@
     <string name="title_activity_edit">用钱了你知道吗</string>
     <string name="title_activity_animation">动画</string>
     <string name="title_activity_animation_group">动画汇</string>
+    <string name="title_activity_canvas_circle">圈圈圈圈圈</string>
+    <string name="title_activity_animation_directory">动画列表</string>
+
 
     <string name="desc_msg">并不能有更多~</string>
     <string name="desc_no_consume_msg">快来添加吧~</string>
@@ -31,6 +38,7 @@
     <string name="rmb">¥</string>
 
     <string name="action_settings">Settings</string>
+
 
 
 </resources>
