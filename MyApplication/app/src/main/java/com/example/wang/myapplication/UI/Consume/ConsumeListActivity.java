@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.wang.myapplication.BaseActivity;
@@ -19,6 +20,7 @@ import com.example.wang.myapplication.Bean.ConsumeBean;
 import com.example.wang.myapplication.Dao.ConsumeDao;
 import com.example.wang.myapplication.R;
 import com.example.wang.myapplication.UI.Home.MainActivity;
+import com.example.wang.myapplication.UI.View.ConsumeListItemView;
 import com.example.wang.myapplication.Utils.AppUtils;
 import com.example.wang.myapplication.Utils.IntentActionUtils;
 
@@ -39,6 +41,16 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
 
     private boolean showEditMenu = true;
     private boolean showMenu = true;
+
+    private LinearLayout item_layout;
+    private float XDownRaw = 0;
+    private float XMoveRaw = 0;
+    private float move_distance;
+    private int xDown;
+    private int yDown;
+    private int itemPosition;
+
+    private boolean SHOW_DEL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -177,20 +189,20 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
     private View.OnTouchListener onTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            int XDownRaw;
-            int xDown;
-            int yDown;
-            int itemPositon;
-            int action = event.getAction();
-            switch (action){
+            switch (event.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    XDownRaw = (int)event.getRawX();//相对屏幕坐标
+                    XDownRaw = event.getRawX();//相对屏幕坐标
                     xDown = (int)event.getX();
                     yDown = (int)event.getY();//相对容器坐标
-                    itemPositon = listView.pointToPosition(xDown,yDown);//无效返回-1
-                    Log.v(AppUtils.LOG_TAG," " +itemPositon);
+                    itemPosition = listView.pointToPosition(xDown,yDown);//无效返回-1
+                    ConsumeListItemView consumeListItemView = (ConsumeListItemView)listView.getChildAt(itemPosition);
+                    item_layout = (LinearLayout)consumeListItemView.findViewById(R.id.item_layout);
+                    Log.v(AppUtils.LOG_TAG," " +itemPosition + " " + consumeListItemView.getShowMsg());
                     break;
                 case MotionEvent.ACTION_MOVE:
+                    XMoveRaw = event.getRawX();
+                    move_distance = XMoveRaw - XDownRaw;
+                    SHOW_DEL = move_distance > 0 ? true : false;
                     break;
                 case MotionEvent.ACTION_UP:
                     break;
@@ -207,7 +219,7 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
             add_btn.setVisibility(View.GONE);
             del_btn.setVisibility(View.VISIBLE);
             ConsumeListActivity.this.invalidateOptionsMenu();
-            return true;
+            return true;//true表示该触发事件已经处理完毕
         }
     };
 
@@ -219,6 +231,7 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
         }
     };
 
+    //可以考虑直接把布局改成scrollview
     private AbsListView.OnScrollListener onScrollListener = new AbsListView.OnScrollListener() {
         @Override
         public void onScrollStateChanged(AbsListView absListView, int i) {

@@ -6,21 +6,27 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.wang.myapplication.Bean.ConsumeBean;
 import com.example.wang.myapplication.R;
+import com.example.wang.myapplication.Utils.AppUtils;
 
 /**
  * Created by wang on 2015/5/5.
  */
-public class ConsumeListItemView extends LinearLayout implements View.OnClickListener{
+public class ConsumeListItemView extends LinearLayout implements View.OnClickListener, View.OnTouchListener{
 
+    private int consume_id;
     private TextView consume_cost;
     private TextView consume_category;
     private TextView consume_describe_msg;
+
+    private LinearLayout item_Layout;
+    private TextView consume_del_item;
 
     public ConsumeListItemView(Context context) {
         super(context);
@@ -40,32 +46,35 @@ public class ConsumeListItemView extends LinearLayout implements View.OnClickLis
     }
 
     @Override
-    public void onFinishInflate(){
+    protected void onFinishInflate(){
         inflate(getContext(), R.layout.consume_listview_item,this);
         consume_cost = (TextView)findViewById(R.id.consume_cost);
         consume_category = (TextView)findViewById(R.id.consume_category);
         consume_describe_msg = (TextView)findViewById(R.id.consume_describe_msg);
+
+        item_Layout = (LinearLayout)findViewById(R.id.item_layout);
+        consume_del_item = (TextView)findViewById(R.id.consume_del_item_textView);
         consume_cost.setOnClickListener(this);
         super.onFinishInflate();
     }
 
     @Override
-    public void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec){
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
-    public void onLayout(boolean changed, int l, int t, int r, int b){
+    protected void onLayout(boolean changed, int l, int t, int r, int b){
         super.onLayout(changed, l, t, r, b);
     }
 
     @Override
-    public void onDraw(Canvas canvas){
+    protected void onDraw(Canvas canvas){
         super.onDraw(canvas);
     }
 
-    public void setData(ConsumeBean bean){
-        consume_cost.setText(String.valueOf(bean.getCost()));
+    public void setId(int id){
+        this.consume_id = id;
     }
 
     public static ConsumeListItemView build(Context context){
@@ -94,14 +103,31 @@ public class ConsumeListItemView extends LinearLayout implements View.OnClickLis
         }
     }
 
-    public String getShowMsg(){
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("消费: ");
-        stringBuffer.append(consume_cost.getText().toString());
-        stringBuffer.append("TT类别: ");
-        stringBuffer.append(consume_category.getText().toString());
-        stringBuffer.append("TT备注: ");
-        stringBuffer.append(consume_describe_msg.getText().toString());
-        return stringBuffer.toString().replaceAll("\n","").replaceAll("TT", "\n");
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                Log.v(AppUtils.LOG_TAG, "consume id = " + consume_id);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+            default:
+                break;
+        }
+        return false;
     }
+
+    public String getShowMsg(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("消费: ");
+        stringBuilder.append(consume_cost.getText().toString());
+        stringBuilder.append("TT类别: ");
+        stringBuilder.append(consume_category.getText().toString());
+        stringBuilder.append("TT备注: ");
+        stringBuilder.append(consume_describe_msg.getText().toString());
+        return stringBuilder.toString().replaceAll("\n","").replaceAll("TT", "\n");
+    }
+
 }

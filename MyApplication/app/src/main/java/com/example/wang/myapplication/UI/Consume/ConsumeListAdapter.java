@@ -45,6 +45,7 @@ public class ConsumeListAdapter extends ArrayListAdapter<ConsumeBean>{
         viewHolder.category.setText(bean.getCategory());
         viewHolder.describe_msg.setText(bean.getDescribe_msg());
 
+        itemView.setId(bean.getId());
         return itemView;
     }
 

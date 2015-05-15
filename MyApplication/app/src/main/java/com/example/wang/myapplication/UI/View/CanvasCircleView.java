@@ -94,7 +94,7 @@ public class CanvasCircleView extends View{
         canvas.drawLine(0, this.getHeight() / 2, this.getWidth(), this.getHeight() / 2, linePaint);
     }
 
-    //设置成255在最外圈的时候回变成不透明
+    //设置成255在最外圈的时候会变成不透明
     private void setCircleAlpha(){
         circlePaint1.setAlpha(256 - (int)(255 * (increase_length_one / (MAX_RADIUS - RADIUS))));
         if(increase_length_two > 0){

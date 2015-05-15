@@ -1,60 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:gravity="center"
-    android:background="@drawable/list_view_bg"
-    android:descendantFocusability="blocksDescendants"
-    android:orientation="horizontal">
-
+    android:layout_height="100dp">
     <TextView
-        android:id="@+id/consume_cost"
+        android:id="@+id/consume_del_item_textView"
         android:layout_width="@dimen/margin_padding_80"
-        android:layout_height="@dimen/margin_padding_80"
-        android:layout_marginLeft="@dimen/margin_padding_10"
-        android:gravity="center"
-        android:lineSpacingExtra="@dimen/margin_padding_5"
-        android:background="@drawable/list_view_item_cost_bg"
-        android:textColor="@color/text_color_white"
-        android:focusable="false"
-        android:textSize="@dimen/text_size_18"
-        android:text="@string/rmb"/>
-
+        android:layout_height="@dimen/margin_padding_60"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@color/light_red"/>
     <LinearLayout
-        android:layout_width="0dp"
+        android:id="@+id/item_layout"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_marginTop="@dimen/margin_padding_10"
-        android:layout_marginBottom="@dimen/margin_padding_10"
-        android:layout_marginLeft="@dimen/margin_padding_20"
-        android:layout_marginRight="@dimen/margin_padding_10"
-        android:divider="@drawable/divider_horizontal"
-        android:showDividers="middle"
         android:gravity="center"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/consume_category"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingLeft="@dimen/margin_padding_10"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/text_size_16"
-            android:textColor="@color/text_color_medium"/>
-        <TextView
-            android:id="@+id/consume_describe_msg"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingLeft="@dimen/margin_padding_10"
-            android:singleLine="true"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/text_size_16"
-            android:textColor="@color/text_color_medium" />
-    </LinearLayout>
+        android:background="@drawable/list_view_bg"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="horizontal">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/consume_cost"
+            android:layout_width="@dimen/margin_padding_80"
+            android:layout_height="@dimen/margin_padding_80"
+            android:layout_marginLeft="@dimen/margin_padding_10"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/margin_padding_5"
+            android:background="@drawable/list_view_item_cost_bg"
+            android:textColor="@color/text_color_white"
+            android:focusable="false"
+            android:textSize="@dimen/text_size_18"
+            android:text="@string/rmb"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/margin_padding_10"
+            android:layout_marginBottom="@dimen/margin_padding_10"
+            android:layout_marginLeft="@dimen/margin_padding_20"
+            android:layout_marginRight="@dimen/margin_padding_10"
+            android:divider="@drawable/divider_horizontal"
+            android:showDividers="middle"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/consume_category"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/margin_padding_10"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/text_size_16"
+                android:textColor="@color/text_color_medium"/>
+            <TextView
+                android:id="@+id/consume_describe_msg"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/margin_padding_10"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/text_size_16"
+                android:textColor="@color/text_color_medium" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
