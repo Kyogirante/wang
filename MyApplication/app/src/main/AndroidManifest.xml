@@ -94,6 +94,18 @@
             android:label="@string/title_activity_animation_directory"
             android:theme="@style/AppTheme">
         </activity>
+        <activity
+            android:name=".UI.Demo.CheckView.CheckTestActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_animation_directory"
+            android:theme="@style/materialTheme">
+        </activity>
+        <activity
+            android:name=".UI.Demo.DemoMainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_animation_directory"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

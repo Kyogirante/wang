@@ -7,6 +7,9 @@
         <item name="android:actionMenuTextAppearance">@style/MyActionBarMenu</item>
     </style>
 
+    <style name="materialTheme" parent="@android:style/Theme.Material">
+
+    </style>
     <style name="AppTheme.NoTitle">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@color/background</item>

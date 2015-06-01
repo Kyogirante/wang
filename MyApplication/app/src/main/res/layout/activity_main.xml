@@ -29,4 +29,12 @@
         style="@style/Button.Red"
         android:text="@string/animation_directory_btn_text"/>
 
+    <Button
+        android:id="@+id/test_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginTop="@dimen/margin_padding_10"
+        style="@style/Button.Red"
+        android:text="测试"/>
+
 </LinearLayout>

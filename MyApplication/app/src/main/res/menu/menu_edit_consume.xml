@@ -5,4 +5,16 @@
         android:title="@string/menu_del"
         android:orderInCategory="100"
         android:showAsAction="always" />
+
+    <item
+        android:id="@+id/test1"
+        android:title="嗯啊"
+        android:visible="true"
+        android:showAsAction="never"/>
+
+    <item
+        android:id="@+id/test3"
+        android:title="嗯啊"
+        android:visible="true"
+        android:showAsAction="never"/>
 </menu>
