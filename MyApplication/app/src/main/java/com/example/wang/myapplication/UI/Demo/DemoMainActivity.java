@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.example.wang.myapplication.BaseActivity;
 import com.example.wang.myapplication.R;
-import com.example.wang.myapplication.UI.Demo.CheckView.CheckTestActivity;
+import com.example.wang.myapplication.UI.Demo.CheckView.LollipopActivity;
 
 /**
  * Created by wang on 2015/5/25.
@@ -38,7 +38,7 @@ public class DemoMainActivity extends BaseActivity implements View.OnClickListen
         int id = v.getId();
         switch (id){
             case R.id.check_view_btn:
-                CheckTestActivity.intentAction(this);
+                LollipopActivity.intentAction(this);
                 break;
             default:
                 break;

@@ -95,7 +95,7 @@
             android:theme="@style/AppTheme">
         </activity>
         <activity
-            android:name=".UI.Demo.CheckView.CheckTestActivity"
+            android:name=".UI.Demo.CheckView.LollipopActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_animation_directory"
             android:theme="@style/materialTheme">
@@ -105,6 +105,12 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_animation_directory"
             android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name=".UI.Demo.CheckView.DetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="共享元素跳转"
+            android:theme="@style/materialTheme">
         </activity>
     </application>
 
