@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,6 +37,7 @@ public class LollipopActivity extends BaseActivity implements View.OnClickListen
 
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
+        text1.setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +57,9 @@ public class LollipopActivity extends BaseActivity implements View.OnClickListen
                         Pair.create(this.findViewById(R.id.sharedImage),DetailActivity.SHARED_IMAGE));
                 startActivity(intent, activityOptions.toBundle());
                 break;
+            case R.id.text1:
+
+                break;
             default:
                 break;
         }
@@ -69,12 +75,12 @@ public class LollipopActivity extends BaseActivity implements View.OnClickListen
         anim.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-
+                text1.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                text1.setVisibility(View.VISIBLE);
+
             }
 
             @Override
@@ -87,7 +93,8 @@ public class LollipopActivity extends BaseActivity implements View.OnClickListen
 
             }
         });
-        anim.setDuration(1000);
+        anim.setInterpolator(new AccelerateDecelerateInterpolator());
+        anim.setDuration(500);
         anim.start();
     }
 
@@ -119,8 +126,8 @@ public class LollipopActivity extends BaseActivity implements View.OnClickListen
 
             }
         });
-
-        anim.setDuration(1000);
+        anim.setInterpolator(new DecelerateInterpolator());
+        anim.setDuration(500);
         anim.start();
     }
     public static void intentAction(Context context){

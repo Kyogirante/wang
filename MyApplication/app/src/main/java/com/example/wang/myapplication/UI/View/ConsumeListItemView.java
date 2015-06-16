@@ -73,6 +73,18 @@ public class ConsumeListItemView extends LinearLayout implements View.OnClickLis
         super.onDraw(canvas);
     }
 
+    public TextView getConsume_cost() {
+        return consume_cost;
+    }
+
+    public TextView getConsume_category() {
+        return consume_category;
+    }
+
+    public TextView getConsume_describe_msg() {
+        return consume_describe_msg;
+    }
+
     public void setId(int id){
         this.consume_id = id;
     }

@@ -196,8 +196,10 @@ public class ConsumeListActivity extends BaseActivity implements View.OnClickLis
                     yDown = (int)event.getY();//相对容器坐标
                     itemPosition = listView.pointToPosition(xDown,yDown);//无效返回-1
                     ConsumeListItemView consumeListItemView = (ConsumeListItemView)listView.getChildAt(itemPosition);
+                    if(consumeListItemView == null){
+                        break;
+                    }
                     item_layout = (LinearLayout)consumeListItemView.findViewById(R.id.item_layout);
-                    Log.v(AppUtils.LOG_TAG," " +itemPosition + " " + consumeListItemView.getShowMsg());
                     break;
                 case MotionEvent.ACTION_MOVE:
                     XMoveRaw = event.getRawX();

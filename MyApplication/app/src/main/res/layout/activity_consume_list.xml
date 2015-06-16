@@ -30,28 +30,21 @@
             android:visibility="gone"/>
     </LinearLayout>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_add"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin_padding_60"
-        android:background="@color/white"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/btn_add"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/btn_height"
-            android:layout_marginBottom="@dimen/margin_padding_10"
-            android:layout_marginTop="@dimen/margin_padding_10"
-            style="@style/Button.Red"
-            android:text="@string/add_btn_text"/>
-        <Button
-            android:id="@+id/btn_del"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/margin_padding_40"
-            android:layout_marginBottom="@dimen/margin_padding_10"
-            android:layout_marginTop="@dimen/margin_padding_10"
-            style="@style/Button.Red"
-            android:text="@string/delete_btn_text"
-            android:visibility="gone"/>
-    </LinearLayout>
-
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginBottom="@dimen/margin_padding_10"
+        android:layout_marginTop="@dimen/margin_padding_10"
+        style="@style/Button.Normal"
+        android:text="@string/add_btn_text"/>
+    <Button
+        android:id="@+id/btn_del"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginBottom="@dimen/margin_padding_10"
+        android:layout_marginTop="@dimen/margin_padding_10"
+        style="@style/Button.Normal"
+        android:text="@string/delete_btn_text"
+        android:visibility="gone"/>
 </LinearLayout>

@@ -23,14 +23,14 @@
     <style name="Button">
         <item name="android:singleLine">true</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:textSize">@dimen/text_size_15</item>
         <item name="android:layout_marginLeft">@dimen/margin_padding_10</item>
         <item name="android:layout_marginRight">@dimen/margin_padding_10</item>
         <item name="android:paddingLeft">@dimen/margin_padding_10</item>
         <item name="android:paddingRight">@dimen/margin_padding_10</item>
     </style>
 
-    <style name="Button.Red">
+    <style name="Button.Normal">
         <item name="android:textColor">@color/text_color</item>
         <item name="android:background">@drawable/btn_bg</item>
     </style>

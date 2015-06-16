@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/btn_height"
         android:layout_marginTop="@dimen/margin_padding_10"
-        style="@style/Button.Red"
+        style="@style/Button.Normal"
         android:text="@string/viewpager_btn_text"/>
 
     <Button
@@ -18,7 +18,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/btn_height"
     android:layout_marginTop="@dimen/margin_padding_10"
-    style="@style/Button.Red"
+    style="@style/Button.Normal"
     android:text="@string/listview_btn_text"/>
 
     <Button
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/btn_height"
         android:layout_marginTop="@dimen/margin_padding_10"
-        style="@style/Button.Red"
+        style="@style/Button.Normal"
         android:text="@string/animation_directory_btn_text"/>
 
     <Button
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/btn_height"
         android:layout_marginTop="@dimen/margin_padding_10"
-        style="@style/Button.Red"
+        style="@style/Button.Normal"
         android:text="测试"/>
 
 </LinearLayout>
