@@ -9,6 +9,7 @@ import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.wang.myapplication.R;
@@ -32,6 +33,7 @@ public class AutoViewPageActivity extends Activity implements ViewPager.OnPageCh
     private String[] imageDescriptions;
     private ViewPager mViewPager;
     private ScheduledExecutorService scheduledExecutorService;
+    private RadioGroup radioGroup;
 
     private Handler handler = new Handler() {
         @Override
@@ -59,6 +61,7 @@ public class AutoViewPageActivity extends Activity implements ViewPager.OnPageCh
     public void initView() {
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         tvDescription = (TextView) findViewById(R.id.tv_image_description);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
 
         prepareData();
 
@@ -116,11 +119,23 @@ public class AutoViewPageActivity extends Activity implements ViewPager.OnPageCh
 
     @Override
     public void onPageSelected(int position) {
-            tvDescription.setText(imageDescriptions[position]);
-            if(currentItem!=position){
-                currentItem = position;
-            }
-
+        tvDescription.setText(imageDescriptions[position]);
+        if(currentItem!=position){
+            currentItem = position;
+        }
+        switch (position){
+            case 0:
+                radioGroup.check(R.id.one);
+                break;
+            case 1:
+                radioGroup.check(R.id.two);
+                break;
+            case 2:
+                radioGroup.check(R.id.three);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
